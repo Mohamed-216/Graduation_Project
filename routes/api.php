@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 Route::get('/recipes', [RecipeController::class, 'index']);
 Route::post('/register', [AuthController::class, 'handleRegister']);
 Route::post('/mealplan', [MealPlanController::class, 'index']);
+Route::get('/meal-planner/{category}', [CategoryController::class, 'index']);
 Route::controller(SpoonacularController::class)->group(function () {
     Route::get('/findByNutrients/{protein}', 'findByNutrients')->where('protein', '[0-9]+');
     Route::get('/show/{recipeId}', 'show')->where('recipeId', '[0-9]+');
